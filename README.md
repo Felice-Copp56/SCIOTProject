@@ -38,11 +38,11 @@ First of all open two different terminal, (Windows Powershell for example)
  
 <pre>docker run -p 9000:15672  -p 1883:1883 -p 5672:5672  cyrilix/rabbitmq-mqtt</pre>
 
-+ Check the installation
+
 In your browser search **localhost:8070** to check Nuclio installation and **localhost:9000** to check RabbitMQ installation.
 + Now, from the Nuclio homepage, create a new project and call it *FishTank* or something else
 + After this, press *Create function *, *Import* and from **yamlFolder** import the two functions
-+ **Important**: in both the functions change the IP address with your IP, you'll find (*Put your IP here*) and from consumer function, go on trigger windows and change the IP again
++ **Important**: in both the functions change the IP address with your IP, you'll find (*Put your IP here*) and from consumer function, go on trigger windows and change the IP again. 
 + Deploy both functions, **Deploy button** 
 + Now both functions are running!
 

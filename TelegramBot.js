@@ -1,8 +1,8 @@
 const { Telegraf } = require('telegraf');
 const amqp = require('amqplib');
 const moment = require("moment");
-const bot = new Telegraf("1893739661:AAEdF_XL5Yd20LoW6X6znWrmJZ2pVqAqwSE")
-const chatId = "786967225"
+const bot = new Telegraf("INSERT_TOKEN_HERE")
+const chatId = "CHAT_ID"
 
 //Wait for the connection
 
@@ -49,7 +49,7 @@ bot.launch()
 
 
 function connect() {
-    amqp.connect('amqp://guest:guest@192.168.1.72:5672').then(function (conn) {
+    amqp.connect('amqp://guest:guest@"YOUR_IP_ADDRESS":5672').then(function (conn) {
 
         //process.once('SIGINT', function () { conn.close(); });
         return conn.createChannel().then(function (ch) {

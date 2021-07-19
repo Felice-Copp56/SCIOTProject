@@ -1,0 +1,34 @@
+metadata:
+  name: mqttconsumeph
+  labels:
+    nuclio.io/project-name: 1897f591-2faf-43c0-882c-09a977b1495f
+spec:
+  handler: "main:handler"
+  runtime: nodejs
+  resources: {}
+  image: "nuclio/processor-mqttconsumeph:latest"
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPU: 75
+  triggers:
+    mqttTrigger:
+      class: ""
+      kind: mqtt
+      url: "guest:guest@192.168.1.72:1883"
+      attributes:
+        subscriptions:
+          - qos: 0
+            topic: iot/sensors/state
+  build:
+    image: ""
+    noCache: false
+    offline: false
+    dependencies: []
+    runtimeAttributes:
+      repositories: []
+    functionSourceCode: dmFyIGFtcXAgPSByZXF1aXJlKCdhbXFwbGliJyk7DQp2YXIgRlVOQ1RJT05fTkFNRSA9ICJtcXR0Y29uc3VtZSI7DQoNCmZ1bmN0aW9uIHNlbmRBbGVydChtc2cpIHsNCiAgICB2YXIgcSA9ICdpb3QvYWxlcnRzJzsNCiAgICBhbXFwLmNvbm5lY3QoJ2FtcXA6Ly9ndWVzdDpndWVzdEAxOTIuMTY4LjEuNzI6NTY3MicpLnRoZW4oZnVuY3Rpb24gKGNvbm4pIHsNCiAgICAgICAgcmV0dXJuIGNvbm4uY3JlYXRlQ2hhbm5lbCgpLnRoZW4oZnVuY3Rpb24gKGNoKSB7DQogICAgICAgICAgICB2YXIgb2sgPSBjaC5hc3NlcnRRdWV1ZShxLCB7IGR1cmFibGU6IGZhbHNlIH0pOw0KICAgICAgICAgICAgcmV0dXJuIG9rLnRoZW4oZnVuY3Rpb24gKF9xb2spIHsNCiAgICAgICAgICAgICAgICBjaC5zZW5kVG9RdWV1ZShxLCBCdWZmZXIuZnJvbShtc2cpKTsNCiAgICAgICAgICAgICAgICBjb25zb2xlLmxvZygiIFt4XSBTZW50ICclcyciLCBtc2cpOw0KICAgICAgICAgICAgICAgIHJldHVybiBjaC5jbG9zZSgpOw0KICAgICAgICAgICAgfSk7DQogICAgICAgIH0pLmZpbmFsbHkoZnVuY3Rpb24gKCkgew0KICAgICAgICAgICAgY29ubi5jbG9zZSgpOw0KICAgICAgICB9KTsNCiAgICB9KS5jYXRjaChjb25zb2xlLndhcm4pOw0KfQ0KZnVuY3Rpb24gYmluMnN0cmluZyhhcnJheSkgew0KICAgIHZhciByZXN1bHQgPSAiIjsNCiAgICBmb3IgKHZhciBpID0gMDsgaSA8IGFycmF5Lmxlbmd0aDsgKytpKSB7DQogICAgICAgIHJlc3VsdCArPSAoU3RyaW5nLmZyb21DaGFyQ29kZShhcnJheVtpXSkpOw0KICAgIH0NCiAgICByZXR1cm4gcmVzdWx0Ow0KfQ0KDQpleHBvcnRzLmhhbmRsZXIgPSBmdW5jdGlvbiAoY29udGV4dCwgZXZlbnQpIHsNCiAgICB2YXIgX2V2ZW50ID0gSlNPTi5wYXJzZShKU09OLnN0cmluZ2lmeShldmVudCkpOw0KICAgIHZhciBfZGF0YSA9IGJpbjJzdHJpbmcoX2V2ZW50LmJvZHkuZGF0YSk7DQogICAgdmFyIHBIID0gcGFyc2VJbnQoX2RhdGEpOw0KDQogICAgY29udGV4dC5jYWxsYmFjaygiZmVlZGJhY2sgIiArIF9kYXRhKTsNCg0KICAgIGNvbnNvbGUubG9nKCJUUklHR0VSICIgKyBfZGF0YSk7DQogICAgDQogICAgaWYgKHBIPDYpIHsNCiAgICAgICAgc2VuZEFsZXJ0KCIgIitwSCsiIHRvbyBsb3ciKTsNCiAgICB9DQogICAgaWYocEg+OCkNCiAgICB7DQogICAgICAgIHNlbmRBbGVydCgiICIrcEgrIiB0b28gaGlnaCIpOw0KICAgIH0NCg0KfTs=
+    commands:
+      - 'npm install amqplib'
+    codeEntryType: sourceCode
+  platform: {}
+  readinessTimeoutSeconds: 60
